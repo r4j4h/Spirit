@@ -1,0 +1,6 @@
+{ "name" : "Spirit"
+, "description" : ""
+, "version": "0.0.1"
+, "dependencies": {}
+, "main" : "./lib/spirit"
+}

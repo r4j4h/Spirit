@@ -1,0 +1,25 @@
+Spirit is a fast, lightweight text-driven database. Geared for prototypes, with easy replacement, and for small projects.
+
+Usage:
+
+var spirit = require('spirit');
+
+..Network data..e.g. get('/something/:id'), function(req, res) {
+  var id = req.param.id;
+  spirit.openDatafile('something/ids.dat', 'id', id, function(data) {
+    //Use your data, e.g. res.render('userpage', { username: data.username });
+  });
+  
+  var userDataWouldBeNice;
+  //same code as before, mostly
+  spirit.openDatafile('something/ids.dat', 'id', id, function(err, data) {
+    if (err) console.log(err);
+    userDataWouldBeNice = data;
+  });
+  
+  userDataWouldBeNice.powerlevel++;
+  
+  spirit.saveDatafile('something/ids.dat', 'id', id, userDataWouldBeNice, function(err) {
+    if (err) console.log(err);
+  });
+  
